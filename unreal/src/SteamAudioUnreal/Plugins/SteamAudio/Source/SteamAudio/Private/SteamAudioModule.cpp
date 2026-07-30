@@ -104,10 +104,9 @@ void FSteamAudioModule::StartupModule()
 #if WITH_EDITOR
     FEditorDelegates::PostPIEStarted.AddRaw(this, &FSteamAudioModule::OnPIEStarted);
     FEditorDelegates::EndPIE.AddRaw(this, &FSteamAudioModule::OnEndPIE);
-#else
+#endif
     FCoreDelegates::OnFEngineLoopInitComplete.AddRaw(this, &FSteamAudioModule::OnEngineLoopInitComplete);
     FCoreDelegates::OnEnginePreExit.AddRaw(this, &FSteamAudioModule::OnEnginePreExit);
-#endif
 
     UE_LOG(LogSteamAudio, Log, TEXT("Initialized module SteamAudio."));
 }
